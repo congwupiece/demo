@@ -1,11 +1,6 @@
 {
     "name": "Push Demo",
     "short_name": "Push Demo",
-    "icons": [{
-        "src": "images/icon-192x192.png",
-        "sizes": "192x192"
-    }],
-    "start_url": "./index.html?homescreen=1",
     "display": "standalone",
     "gcm_sender_id": "985127393581",
 

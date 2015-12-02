@@ -1,8 +1,9 @@
 'use strict';
+console.log(self);
 
 self.addEventListener('push', function(event) {
     console.log('Received a push message', event);
-
+    //no event target
     var title = 'Yay a message.';
     var body = 'We have received a push message.';
     var icon = '/images/icon-192x192.png';

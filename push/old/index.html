@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="http://codemirror.net/lib/codemirror.css">
+</head>
+<style>
+textarea{
+    display:none;
+}
+#preCode,#demoCode{
+    height: 80px;
+    overflow: hidden;
+    margin-bottom: 24px;
+    border: 1px solid #eee;
+}
+#demoCode{
+    height: 200px;px;
+}
+</style>
+<body>
+<div style="width:600px;margin:auto">
+    <button style="margin-bottom:20px;margin-top:20px;" onclick="notify('给我来个通知','来了')">给我来个通知</button>
+    <div id="preCode"></div>
+    <div id="demoCode"></div>
+</div>
+<textarea name="name" rows="2" cols="40" id="pre">
+//申请权限
+Notification.requestPermission(function(permission) {
+
+});
+</textarea>
+<textarea name="name" rows="8" cols="40" id="demo">
+//触发
+var notification = new Notification(title, {
+    "icon": iconUrl,
+    "body": content,
+});
+notification.display = function() {}
+notification.onerror = function() {}
+notification.onclose = function() {}
+notification.onclick = function() {
+    alert("通知被点了");
+}
+</textarea>
+</body>
+<script src="http://codemirror.net/lib/codemirror.js"></script>
+<script src="http://codemirror.net/mode/javascript/javascript.js"></script>
+<script>
+var demoCode = document.getElementById("demoCode")
+var editor = CodeMirror(demoCode, {
+    lineNumbers: true,
+    mode:  "javascript",
+    value:document.getElementById("demo").innerHTML,
+});
+var preCode = document.getElementById("preCode");
+var editor2 = CodeMirror(preCode, {
+    lineNumbers: true,
+    value:document.getElementById("pre").innerHTML,
+    mode: "javascript"
+});
+</script>
+<script src="notification.js"></script>
+</html>
