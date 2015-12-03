@@ -35,7 +35,7 @@ function notify(title, content) {
             notification.onclose = function() {}
             notification.onclick = function() {
                 alert("通知被点了");
-                this.cancel();
+                this.close();
             }
         }
         //如果没权限，则请求权限

@@ -13,7 +13,8 @@ self.addEventListener('push', function(event) {
         self.registration.showNotification(title, {
             body: body,
             icon: icon,
-            tag: tag
+            tag: tag,
+            data: "123"
         })
     );
 });
@@ -35,8 +36,11 @@ self.addEventListener('notificationclick', function(event) {
             if (client.url == '/' && 'focus' in client)
                 return client.focus();
         }
-        if (clients.openWindow)
-            return clients.openWindow('/');
+        if (clients.openWindow) {
+            // console.log(event.notification.data);
+            return clients.openWindow('/new_open');
+            //路径只能打开相对
+        }
     }));
 
 });
